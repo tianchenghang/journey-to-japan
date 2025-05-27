@@ -56,12 +56,33 @@ export default function Index() {
         style={{
           position: "absolute",
           bottom: 0,
-          backgroundColor: "red",
-          height: 100,
           width: "100%",
+          minHeight: 100,
           flexDirection: "column",
+          borderWidth: 1,
+          borderTopStartRadius: 16,
+          borderTopEndRadius: 16,
         }}
       >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            paddingHorizontal: 8,
+          }}
+        >
+          <TextInput
+            multiline
+            placeholder="What can I help with?"
+            placeholderTextColor="#818181"
+            style={{
+              flex: 1,
+              borderRadius: 16,
+              minHeight: 32,
+              maxHeight: 160,
+            }}
+          />
+        </View>
         <View
           style={{
             flexDirection: "row",
@@ -72,17 +93,19 @@ export default function Index() {
           }}
         >
           <Image
-            source={require("@/assets/images/add.svg")}
+            source={require("@/assets/images/upload.svg")}
             style={{ width: 24, height: 24 }}
           />
-          <TextInput
-            multiline
-            placeholder="Welcome to Japan, what can I help with?"
-            placeholderTextColor="#ccc"
-            style={{ flex: 1 }}
+          <Image
+            source={require("@/assets/images/switch.svg")}
+            style={{ width: 24, height: 24 }}
           />
           <Image
-            source={require("@/assets/images/upload.svg")}
+            source={require("@/assets/images/voice.svg")}
+            style={{ width: 24, height: 24 }}
+          />
+          <Image
+            source={require("@/assets/images/submit.svg")}
             style={{ width: 24, height: 24 }}
           />
         </View>
