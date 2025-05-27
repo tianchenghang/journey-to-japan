@@ -59,30 +59,8 @@ export default function Index() {
           width: "100%",
           minHeight: 100,
           flexDirection: "column",
-          borderWidth: 1,
-          borderTopStartRadius: 16,
-          borderTopEndRadius: 16,
         }}
       >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: 8,
-          }}
-        >
-          <TextInput
-            multiline
-            placeholder="What can I help with?"
-            placeholderTextColor="#818181"
-            style={{
-              flex: 1,
-              borderRadius: 16,
-              minHeight: 32,
-              maxHeight: 160,
-            }}
-          />
-        </View>
         <View
           style={{
             flexDirection: "row",
@@ -94,19 +72,28 @@ export default function Index() {
         >
           <Image
             source={require("@/assets/images/upload.svg")}
-            style={{ width: 24, height: 24 }}
+            style={{ width: 32, height: 32 }}
           />
-          <Image
-            source={require("@/assets/images/switch.svg")}
-            style={{ width: 24, height: 24 }}
+
+          <TextInput
+            multiline
+            placeholder="What can I help with?"
+            placeholderTextColor="#33393f"
+            style={{
+              flex: 1,
+              minHeight: 32, // 16 + 8 + 8
+              maxHeight: 160,
+              borderColor: "#33393f",
+              borderWidth: 1,
+              paddingVertical: 8,
+              paddingHorizontal: 10,
+              borderRadius: 16,
+            }}
           />
-          <Image
-            source={require("@/assets/images/voice.svg")}
-            style={{ width: 24, height: 24 }}
-          />
+
           <Image
             source={require("@/assets/images/submit.svg")}
-            style={{ width: 24, height: 24 }}
+            style={{ width: 32, height: 32 }}
           />
         </View>
       </BlurView>
