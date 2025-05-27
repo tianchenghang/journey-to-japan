@@ -1,10 +1,11 @@
-import { Dimensions, Pressable, Text, View, StyleSheet } from "react-native";
+import { Dimensions, Text, View, StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Image } from "expo-image";
 import { Drawer } from "expo-router/drawer";
 import HeaderTitle from "@/components/home/HeaderTitle";
 import { BlurView } from "expo-blur";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import MenuButton from "@/components/ui/MenuButton";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {
@@ -23,7 +24,7 @@ export default function Layout() {
             drawerHideStatusBarOnOpen: true,
             drawerLabelStyle: {
               color: colorScheme === "light" ? "#000" : "#fff",
-              // fontSize: 13,
+              // fontSize: 16,
               // fontFamily: 'Tokyo'
             },
             drawerStyle: {
@@ -33,19 +34,7 @@ export default function Layout() {
             headerShadowVisible: false,
             overlayColor: "rgba(0, 0, 0, 0.3)",
             headerLeft: () => (
-              <Pressable
-                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                onPress={() => {
-                  navigation.openDrawer();
-                }}
-              >
-                <Image
-                  source={require("@/assets/images/menu.svg")}
-                  style={{ width: 24, height: 24 }}
-                  tintColor={colorScheme === "light" ? "#000" : "#fff"}
-                  contentFit="cover"
-                />
-              </Pressable>
+              <MenuButton onPress={() => navigation.openDrawer()} />
             ),
             headerLeftContainerStyle: { paddingLeft: 15 },
           };

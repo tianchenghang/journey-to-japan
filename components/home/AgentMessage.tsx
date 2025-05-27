@@ -1,15 +1,26 @@
-import { View, Text, StyleSheet } from "react-native";
-import { ThemedText } from "../ThemedText";
+import { StyleSheet } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 interface IProps {
   content: string;
 }
 
 export default function AgentMessage(props: IProps) {
+  const colorScheme = useColorScheme();
+
   return (
-    <View style={styles.container}>
-      <ThemedText style={styles.text}>{[props.content]}</ThemedText>
-    </View>
+    <ThemedView
+      style={[
+        styles.container,
+        {
+          backgroundColor: colorScheme === "light" ? "#f2f2f2" : "#212121",
+        },
+      ]}
+    >
+      <ThemedText style={{ fontSize: 16 }}>{[props.content]}</ThemedText>
+    </ThemedView>
   );
 }
 
@@ -20,6 +31,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 16,
+    backgroundColor: "",
   },
-  text: { fontSize: 16 },
 });

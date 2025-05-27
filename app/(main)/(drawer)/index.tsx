@@ -1,8 +1,11 @@
 import UserMessage from "@/components/home/UserMessage";
 import AgentMessage from "@/components/home/AgentMessage";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { ThemedView } from "@/components/ThemedView";
+import { BlurView } from "expo-blur";
+import { Image } from "expo-image";
+import { TextInput } from "react-native-gesture-handler";
 
 interface IMessageItem {
   key: string;
@@ -34,7 +37,7 @@ export default function Index() {
         flex: 1,
         // justifyContent: "center",
         // alignItems: "center",
-        paddingHorizontal: 20,
+        // paddingHorizontal: 20,
       }}
     >
       <FlatList
@@ -45,8 +48,45 @@ export default function Index() {
         keyExtractor={(item) => item.key}
         contentContainerStyle={{
           paddingTop: headerHeight,
+          paddingHorizontal: 10,
         }}
       />
+
+      <BlurView
+        style={{
+          position: "absolute",
+          bottom: 0,
+          backgroundColor: "red",
+          height: 100,
+          width: "100%",
+          flexDirection: "column",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 8,
+            paddingHorizontal: 8,
+          }}
+        >
+          <Image
+            source={require("@/assets/images/add.svg")}
+            style={{ width: 24, height: 24 }}
+          />
+          <TextInput
+            multiline
+            placeholder="Welcome to Japan, what can I help with?"
+            placeholderTextColor="#ccc"
+            style={{ flex: 1 }}
+          />
+          <Image
+            source={require("@/assets/images/upload.svg")}
+            style={{ width: 24, height: 24 }}
+          />
+        </View>
+      </BlurView>
     </ThemedView>
   );
 }

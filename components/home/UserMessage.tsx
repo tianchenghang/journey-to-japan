@@ -1,6 +1,6 @@
+import { ThemedText } from "@/components/ThemedText";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { StyleSheet } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "../ThemedView";
 
 interface IProps {
@@ -14,11 +14,11 @@ export default function UserMessage(props: IProps) {
       style={[
         styles.container,
         {
-          backgroundColor: colorScheme === "light" ? "#f2f2f2" : "#212121",
+          backgroundColor: colorScheme === "light" ? "#effdde" : "#2a4526",
         },
       ]}
     >
-      <ThemedText style={styles.text}>{[props.content]}</ThemedText>
+      <ThemedText style={{ fontSize: 16 }}>{[props.content]}</ThemedText>
     </ThemedView>
   );
 }
@@ -31,5 +31,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 16,
   },
-  text: { fontSize: 16 },
 });

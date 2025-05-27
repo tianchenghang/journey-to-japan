@@ -17,11 +17,11 @@ export default function HeaderTitle() {
         { backgroundColor: colorScheme === "light" ? "#f1f1fc" : "#070711" },
       ]}
     >
-      <Text style={styles.text}>Get TIPs</Text>
+      <Text style={{ color: "#5856d6", fontSize: 16 }}>Get TIPs</Text>
       <Image
         source={require("@/assets/images/star.svg")}
-        style={styles.image}
-        tintColor="#5856D6"
+        style={{ width: 16, height: 16 }}
+        tintColor="#5856d6"
       ></Image>
     </Pressable>
   );
@@ -39,6 +39,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 16,
   },
-  text: { color: "#5856d6", fontSize: 16 },
-  image: { width: 16, height: 16 },
 });
