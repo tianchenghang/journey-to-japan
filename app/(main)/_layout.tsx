@@ -7,7 +7,7 @@ export default function Layout() {
       <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
       <Stack.Screen
         name="tip"
-        options={{ headerShown: false, presentation: "containedModal" }}
+        options={{ headerShown: false, presentation: "modal" }}
       />
     </Stack>
   );

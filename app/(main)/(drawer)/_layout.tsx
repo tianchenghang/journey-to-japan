@@ -61,7 +61,7 @@ export default function Layout() {
         }}
       >
         <Drawer.Screen
-          name="home" // This is the name of the page and must match the url from root
+          name="index" // This is the name of the page and must match the url from root
           options={{
             drawerLabel: (props: { color: string; focused: boolean }) => {
               return (
