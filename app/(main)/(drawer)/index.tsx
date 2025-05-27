@@ -1,4 +1,5 @@
-import { View, Text } from "react-native";
+import UserMessage from "@/components/home/UserMessage";
+import { View } from "react-native";
 
 export default function Home() {
   return (
@@ -10,16 +11,7 @@ export default function Home() {
         backgroundColor: "#ffffff",
       }}
     >
-      <View
-        style={{
-          backgroundColor: "#F2F2F2",
-          paddingVertical: 8,
-          paddingHorizontal: 10,
-          borderRadius: 16,
-        }}
-      >
-        <Text style={{ fontSize: 14 }}>用户消息</Text>
-      </View>
+      <UserMessage />
     </View>
   );
 }
