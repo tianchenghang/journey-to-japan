@@ -1,10 +1,25 @@
-import { View, Text, StyleSheet } from "react-native";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { StyleSheet } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "../ThemedView";
 
-export default function UserMessage() {
+interface IProps {
+  content: string;
+}
+
+export default function UserMessage(props: IProps) {
+  const colorScheme = useColorScheme();
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>用户消息</Text>
-    </View>
+    <ThemedView
+      style={[
+        styles.container,
+        {
+          backgroundColor: colorScheme === "light" ? "#f2f2f2" : "#212121",
+        },
+      ]}
+    >
+      <ThemedText style={styles.text}>{[props.content]}</ThemedText>
+    </ThemedView>
   );
 }
 
@@ -12,10 +27,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignSelf: "flex-end",
-    backgroundColor: "#F2F2F2",
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 16,
   },
-  text: { fontSize: 14 },
+  text: { fontSize: 16 },
 });

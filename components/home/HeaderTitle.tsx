@@ -1,36 +1,44 @@
-import { Text, Pressable } from "react-native";
+import { Text, Pressable, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { router } from "expo-router";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
-const HeaderTitle = () => {
+export default function HeaderTitle() {
   const handlePress = () => {
     router.push("/tip");
   };
+  const colorScheme = useColorScheme();
 
   return (
     <Pressable
       onPress={handlePress}
-      style={{
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        flexDirection: "row",
-        gap: 3,
-        // 伸缩项目在主轴上的对齐方式
-        justifyContent: "center",
-        // 伸缩项目在交叉轴上 (单根轴线) 的对齐方式
-        alignItems: "center",
-        backgroundColor: "#F1F1FC",
-        borderRadius: 16,
-      }}
+      style={[
+        styles.container,
+        { backgroundColor: colorScheme === "light" ? "#f1f1fc" : "#070711" },
+      ]}
     >
-      <Text style={{ color: "#5856D6", fontSize: 14 }}>获取提示</Text>
+      <Text style={styles.text}>Get TIPs</Text>
       <Image
         source={require("@/assets/images/star.svg")}
-        style={{ width: 14, height: 14 }}
+        style={styles.image}
         tintColor="#5856D6"
       ></Image>
     </Pressable>
   );
-};
+}
 
-export default HeaderTitle;
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 10, // 8 + 2
+    paddingHorizontal: 12, // 10 + 2
+    flexDirection: "row",
+    gap: 5,
+    // 伸缩项目在主轴上的对齐方式
+    justifyContent: "center",
+    // 伸缩项目在交叉轴上 (单根轴线) 的对齐方式
+    alignItems: "center",
+    borderRadius: 16,
+  },
+  text: { color: "#5856d6", fontSize: 16 },
+  image: { width: 16, height: 16 },
+});

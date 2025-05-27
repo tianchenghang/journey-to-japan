@@ -1,9 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
+import { ThemedText } from "../ThemedText";
 
-export default function AgentMessage() {
+interface IProps {
+  content: string;
+}
+
+export default function AgentMessage(props: IProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>用户消息</Text>
+      <ThemedText style={styles.text}>{[props.content]}</ThemedText>
     </View>
   );
 }
@@ -12,10 +17,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignSelf: "flex-start",
-    backgroundColor: "#F2F2F2",
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 16,
   },
-  text: { fontSize: 14 },
+  text: { fontSize: 16 },
 });

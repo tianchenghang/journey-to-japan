@@ -1,10 +1,10 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
 
 export default function Tip() {
   return (
-    <View>
-      <Text>Tip</Text>
-    </View>
+    <ThemedView>
+      <ThemedText>Tip</ThemedText>
+    </ThemedView>
   );
 }

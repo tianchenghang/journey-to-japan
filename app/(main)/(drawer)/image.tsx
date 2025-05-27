@@ -1,15 +1,16 @@
-import { View, Text } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
 
 export default function Image() {
   return (
-    <View
+    <ThemedView
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Text>Image</Text>
-    </View>
+      <ThemedText>Image</ThemedText>
+    </ThemedView>
   );
 }
