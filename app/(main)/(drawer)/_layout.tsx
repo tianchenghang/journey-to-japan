@@ -53,7 +53,7 @@ export default function Layout() {
                 style={[
                   StyleSheet.absoluteFill,
                   Platform.OS === "android" && {
-                    backgroundColor: "#fff",
+                    backgroundColor: colorScheme === "light" ? "#fff" : "#333",
                   },
                 ]} // 绝对定位
               />

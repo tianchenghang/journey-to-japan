@@ -2,7 +2,7 @@
 import { FlatList } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
 
-import ChatFooter from "@/components/home/ChatFooter";
+import HomeFooter from "@/components/home/HomeFooter";
 import UserMessage from "@/components/home/UserMessage";
 import AgentMessage from "@/components/home/AgentMessage";
 import { ThemedView } from "@/components/ThemedView";
@@ -61,7 +61,6 @@ export default function Index() {
         flex: 1,
         // justifyContent: "center",
         // alignItems: "center",
-        // paddingHorizontal: 20,
       }}
     >
       <FlatList
@@ -79,7 +78,7 @@ export default function Index() {
         showsVerticalScrollIndicator={true}
       />
 
-      <ChatFooter />
+      <HomeFooter />
     </ThemedView>
   );
 }

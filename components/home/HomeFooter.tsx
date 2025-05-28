@@ -2,16 +2,21 @@ import { View, Pressable, TextInput, Platform, StyleSheet } from "react-native";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function ChatFooter() {
-  const { bottom: edgeInsetsBottom } = useSafeAreaInsets();
+  const { bottom: safeBottom } = useSafeAreaInsets();
+  const colorScheme = useColorScheme() ?? "light";
 
   return (
     <BlurView
+      tint={colorScheme}
       style={[
         styles.container,
-        { paddingBottom: edgeInsetsBottom * 1.5 },
-        Platform.OS === "android" && { backgroundColor: "#fff" },
+        { paddingBottom: safeBottom * 1.5 },
+        Platform.OS === "android" && {
+          backgroundColor: colorScheme === "light" ? "#fff" : "#333",
+        },
       ]}
       intensity={50} // 默认值
     >
@@ -20,20 +25,27 @@ export default function ChatFooter() {
           <Image
             source={require("@/assets/images/upload.svg")}
             style={{ width: 32, height: 32 }}
+            tintColor={colorScheme === "light" ? "#333" : "#fff"}
           />
         </Pressable>
         <TextInput
           multiline
           placeholder="What can I help with?"
-          placeholderTextColor="#33393f"
+          placeholderTextColor={colorScheme === "light" ? "#333" : "#ccc"}
           autoCorrect={true}
           autoCapitalize="sentences"
-          style={styles.textInput}
+          style={[
+            styles.textInput,
+            {
+              color: colorScheme === "light" ? "#000" : "#fff",
+            },
+          ]}
         />
         <Pressable onPress={() => {}}>
           <Image
             source={require("@/assets/images/submit.svg")}
             style={{ width: 32, height: 32 }}
+            tintColor={colorScheme === "light" ? "#333" : "#fff"}
           />
         </Pressable>
       </View>
@@ -42,14 +54,17 @@ export default function ChatFooter() {
         <Image
           source={require("@/assets/images/tip.svg")}
           style={{ width: 24, height: 24 }}
+          tintColor={colorScheme === "light" ? "#333" : "#fff"}
         />
         <Image
           source={require("@/assets/images/earth.svg")}
           style={{ width: 24, height: 24 }}
+          tintColor={colorScheme === "light" ? "#333" : "#fff"}
         />
         <Image
           source={require("@/assets/images/voice.svg")}
           style={{ width: 24, height: 24 }}
+          tintColor={colorScheme === "light" ? "#333" : "#fff"}
         />
       </View>
     </BlurView>
@@ -61,7 +76,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
-    // minHeight: 100,
     flexDirection: "column",
     gap: 8,
     paddingTop: 10,
@@ -76,7 +90,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     minHeight: 32, // 16 + 8 + 8
-    maxHeight: 160,
+    maxHeight: 64,
     borderColor: "#eee",
     borderWidth: 1,
     borderRadius: 16,
