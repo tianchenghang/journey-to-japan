@@ -1,7 +1,8 @@
-import { ThemedText } from "@/components/ThemedText";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { StyleSheet } from "react-native";
-import { ThemedView } from "../ThemedView";
+
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 interface IProps {
   content: string;

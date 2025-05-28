@@ -1,6 +1,8 @@
 import { Text, Pressable, StyleSheet } from "react-native";
+
 import { Image } from "expo-image";
 import { router } from "expo-router";
+
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function HeaderTitle() {
@@ -29,8 +31,8 @@ export default function HeaderTitle() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10, // 8 + 2
-    paddingHorizontal: 12, // 10 + 2
+    paddingVertical: 8,
+    paddingHorizontal: 10,
     flexDirection: "row",
     gap: 5,
     // 伸缩项目在主轴上的对齐方式

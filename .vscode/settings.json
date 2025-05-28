@@ -4,6 +4,6 @@
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
   },
-  "editor.fontFamily": "JuliaMono, Victor Mono Medium, Tokyo, Yuanti SC, Sarasa Gothic SC",
+  "editor.fontFamily": "Tokyo, JuliaMono Thin, Victor Mono Medium, Yuanti SC, Sarasa Gothic SC",
   "cSpell.words": ["Pressable"]
 }

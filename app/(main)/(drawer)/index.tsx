@@ -1,11 +1,11 @@
+// cmd/alt + ↑
+import { FlatList } from "react-native";
+import { useHeaderHeight } from "@react-navigation/elements";
+
+import ChatFooter from "@/components/home/ChatFooter";
 import UserMessage from "@/components/home/UserMessage";
 import AgentMessage from "@/components/home/AgentMessage";
-import { FlatList, View } from "react-native";
-import { useHeaderHeight } from "@react-navigation/elements";
 import { ThemedView } from "@/components/ThemedView";
-import { BlurView } from "expo-blur";
-import { Image } from "expo-image";
-import { TextInput } from "react-native-gesture-handler";
 
 interface IMessageItem {
   key: string;
@@ -18,6 +18,30 @@ const messageList: IMessageItem[] = [
   { key: "2", role: "agent", content: "Agent pong." },
   { key: "3", role: "user", content: "User ping again." },
   { key: "4", role: "agent", content: "Agent pong again." },
+  { key: "5", role: "user", content: "User ping." },
+  { key: "6", role: "agent", content: "Agent pong." },
+  { key: "7", role: "user", content: "User ping again." },
+  { key: "8", role: "agent", content: "Agent pong again." },
+  { key: "9", role: "user", content: "User ping." },
+  { key: "10", role: "agent", content: "Agent pong." },
+  { key: "11", role: "user", content: "User ping again." },
+  { key: "12", role: "agent", content: "Agent pong again." },
+  { key: "13", role: "user", content: "User ping." },
+  { key: "14", role: "agent", content: "Agent pong." },
+  { key: "15", role: "user", content: "User ping again." },
+  { key: "16", role: "agent", content: "Agent pong again." },
+  { key: "17", role: "user", content: "User ping." },
+  { key: "18", role: "agent", content: "Agent pong." },
+  { key: "19", role: "user", content: "User ping again." },
+  { key: "20", role: "agent", content: "Agent pong again." },
+  { key: "21", role: "user", content: "User ping." },
+  { key: "22", role: "agent", content: "Agent pong." },
+  { key: "23", role: "user", content: "User ping again." },
+  { key: "24", role: "agent", content: "Agent pong again." },
+  { key: "25", role: "user", content: "User ping." },
+  { key: "26", role: "agent", content: "Agent pong." },
+  { key: "27", role: "user", content: "User ping again." },
+  { key: "28", role: "agent", content: "Agent pong again." },
 ];
 
 const MessageItem = ({ role, content }: IMessageItem) => {
@@ -48,55 +72,14 @@ export default function Index() {
         keyExtractor={(item) => item.key}
         contentContainerStyle={{
           paddingTop: headerHeight,
+          paddingBottom: headerHeight * 2,
           paddingHorizontal: 10,
         }}
+        // 垂直滚动条
+        showsVerticalScrollIndicator={true}
       />
 
-      <BlurView
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          minHeight: 100,
-          flexDirection: "column",
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 8,
-            paddingHorizontal: 8,
-          }}
-        >
-          <Image
-            source={require("@/assets/images/upload.svg")}
-            style={{ width: 32, height: 32 }}
-          />
-
-          <TextInput
-            multiline
-            placeholder="What can I help with?"
-            placeholderTextColor="#33393f"
-            style={{
-              flex: 1,
-              minHeight: 32, // 16 + 8 + 8
-              maxHeight: 160,
-              borderColor: "#33393f",
-              borderWidth: 1,
-              paddingVertical: 8,
-              paddingHorizontal: 10,
-              borderRadius: 16,
-            }}
-          />
-
-          <Image
-            source={require("@/assets/images/submit.svg")}
-            style={{ width: 32, height: 32 }}
-          />
-        </View>
-      </BlurView>
+      <ChatFooter />
     </ThemedView>
   );
 }

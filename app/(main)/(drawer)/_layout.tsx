@@ -1,11 +1,13 @@
-import { Dimensions, Text, View, StyleSheet } from "react-native";
+import { Dimensions, Text, View, StyleSheet, Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { Drawer } from "expo-router/drawer";
+
 import HeaderTitle from "@/components/home/HeaderTitle";
-import { BlurView } from "expo-blur";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import MenuButton from "@/components/ui/MenuButton";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {
@@ -48,7 +50,12 @@ export default function Layout() {
               <BlurView
                 tint={colorScheme}
                 intensity={50} // 默认值
-                style={StyleSheet.absoluteFill} // 绝对定位
+                style={[
+                  StyleSheet.absoluteFill,
+                  Platform.OS === "android" && {
+                    backgroundColor: "#fff",
+                  },
+                ]} // 绝对定位
               />
             ),
             drawerLabel: (props: { color: string; focused: boolean }) => {
