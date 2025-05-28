@@ -31,7 +31,7 @@ export default function Image() {
       >
         <Pressable onPress={() => {}}>
           <ExpoImage
-            source={require("@/assets/images/upload.svg")}
+            source={require("@/assets/images/config.svg")}
             style={{
               width: 32,
               height: 32,
