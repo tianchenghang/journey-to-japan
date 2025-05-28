@@ -42,6 +42,7 @@ const messageList: IMessageItem[] = [
   { key: "26", role: "agent", content: "Agent pong." },
   { key: "27", role: "user", content: "User ping again." },
   { key: "28", role: "agent", content: "Agent pong again." },
+  { key: "29", role: "user", content: "User ping again." },
 ];
 
 const MessageItem = ({ role, content }: IMessageItem) => {
@@ -59,6 +60,7 @@ export default function Index() {
     <KeyboardAvoidingView
       behavior={Platform.OS === "android" ? "height" : "padding"}
       style={{ flex: 1 }}
+      // keyboardVerticalOffset={headerHeight}
     >
       <ThemedView style={{ flex: 1 }}>
         <FlatList

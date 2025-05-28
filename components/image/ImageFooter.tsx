@@ -58,17 +58,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
+    gap: 8,
+    paddingTop: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 8,
-    paddingTop: 10,
     paddingHorizontal: 10,
   },
   textInput: {
     flex: 1,
-    minHeight: 32, // 16 + 8 + 8
-    maxHeight: 64,
+    // minHeight: 32, // 16 + 8 + 8
+    fontSize: 16,
+    maxHeight: 96,
     borderColor: "#eee",
     borderWidth: 1,
     borderRadius: 16,
