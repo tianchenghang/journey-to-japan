@@ -82,7 +82,7 @@ export default function Layout() {
               );
             },
             // title: "Home",
-            headerShadowVisible: false,
+            headerShadowVisible: true,
             headerTitle: HeaderTitle,
             headerTitleAlign: "center",
           }}
