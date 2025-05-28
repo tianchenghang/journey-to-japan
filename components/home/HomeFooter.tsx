@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-export default function ChatFooter() {
+export default function HomeFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();
   const colorScheme = useColorScheme() ?? "light";
 
@@ -13,7 +13,7 @@ export default function ChatFooter() {
       tint={colorScheme}
       style={[
         styles.container,
-        { paddingBottom: safeBottom * 1.5 },
+        { paddingBottom: safeBottom },
         Platform.OS === "android" && {
           backgroundColor: colorScheme === "light" ? "#fff" : "#333",
         },

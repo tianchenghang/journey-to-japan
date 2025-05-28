@@ -42,6 +42,7 @@ export default function Layout() {
                 />
               </Pressable>
             ),
+          title: "TIPs",
           headerShadowVisible: true,
           headerTitleAlign: "center",
         }}

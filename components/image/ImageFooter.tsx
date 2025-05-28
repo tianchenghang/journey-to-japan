@@ -13,9 +13,7 @@ export default function ImageFooter() {
       tint={colorScheme}
       style={[
         styles.container,
-        {
-          paddingBottom: safeBottom * 1.5,
-        },
+        { paddingBottom: safeBottom },
         Platform.OS === "android" && {
           backgroundColor: colorScheme === "light" ? "#fff" : "#333",
         },

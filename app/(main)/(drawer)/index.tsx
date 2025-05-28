@@ -1,5 +1,5 @@
 // cmd/alt + ↑
-import { FlatList } from "react-native";
+import { FlatList, Platform, KeyboardAvoidingView } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
 
 import HomeFooter from "@/components/home/HomeFooter";
@@ -56,29 +56,32 @@ export default function Index() {
   const headerHeight = useHeaderHeight();
 
   return (
-    <ThemedView
-      style={{
-        flex: 1,
-        // justifyContent: "center",
-        // alignItems: "center",
-      }}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "android" ? "height" : "padding"}
+      style={{ flex: 1 }}
     >
-      <FlatList
-        data={messageList}
-        renderItem={({ item }) => (
-          <MessageItem key={item.key} role={item.role} content={item.content} />
-        )}
-        keyExtractor={(item) => item.key}
-        contentContainerStyle={{
-          paddingTop: headerHeight,
-          paddingBottom: headerHeight * 2,
-          paddingHorizontal: 10,
-        }}
-        // 垂直滚动条
-        showsVerticalScrollIndicator={true}
-      />
+      <ThemedView style={{ flex: 1 }}>
+        <FlatList
+          data={messageList}
+          renderItem={({ item }) => (
+            <MessageItem
+              key={item.key}
+              role={item.role}
+              content={item.content}
+            />
+          )}
+          keyExtractor={(item) => item.key}
+          contentContainerStyle={{
+            paddingTop: headerHeight,
+            paddingBottom: headerHeight * 2,
+            paddingHorizontal: 10,
+          }}
+          // 垂直滚动条
+          showsVerticalScrollIndicator={true}
+        />
 
-      <HomeFooter />
-    </ThemedView>
+        <HomeFooter />
+      </ThemedView>
+    </KeyboardAvoidingView>
   );
 }
