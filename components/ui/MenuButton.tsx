@@ -1,6 +1,5 @@
-import { Pressable } from "react-native";
+import { Pressable, useColorScheme } from "react-native";
 import { Image } from "expo-image";
-import { useColorScheme } from "@/hooks/useColorScheme";
 
 interface IProps {
   onPress: () => void;

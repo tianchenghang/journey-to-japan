@@ -1,8 +1,15 @@
-import { View, Pressable, TextInput, Platform, StyleSheet } from "react-native";
+import {
+  View,
+  Pressable,
+  TextInput,
+  Platform,
+  StyleSheet,
+  useColorScheme,
+} from "react-native";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import VoiceButton from "./VoiceButton";
 
 export default function HomeFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();
@@ -15,7 +22,10 @@ export default function HomeFooter() {
         styles.container,
         { paddingBottom: safeBottom },
         Platform.OS === "android" && {
-          backgroundColor: colorScheme === "light" ? "#fff" : "#333",
+          backgroundColor:
+            colorScheme === "light"
+              ? "rgba(255, 255, 255, 0.96)"
+              : "rgba(51, 51, 51, 0.96)",
         },
       ]}
       intensity={50} // 默认值
@@ -31,11 +41,7 @@ export default function HomeFooter() {
           style={{ width: 24, height: 24 }}
           tintColor={colorScheme === "light" ? "#333" : "#fff"}
         />
-        <Image
-          source={require("@/assets/images/voice.svg")}
-          style={{ width: 24, height: 24 }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
-        />
+        <VoiceButton />
       </View>
 
       <View style={styles.row2}>

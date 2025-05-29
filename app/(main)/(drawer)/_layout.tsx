@@ -1,4 +1,10 @@
-import { Dimensions, Text, View, StyleSheet, Platform } from "react-native";
+import {
+  Dimensions,
+  Text,
+  StyleSheet,
+  Platform,
+  useColorScheme,
+} from "react-native";
 import {
   GestureHandlerRootView,
   Pressable,
@@ -10,8 +16,8 @@ import { Drawer } from "expo-router/drawer";
 
 import HeaderTitle from "@/components/home/HeaderTitle";
 import MenuButton from "@/components/ui/MenuButton";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { hapticsLight, hapticSoft, hapticsSuccess } from "@/utils/hap";
+
+import { hapticsLight, hapticsSuccess } from "@/utils/hap";
 import { router } from "expo-router";
 
 const { width: viewportWidth } = Dimensions.get("window");
@@ -63,7 +69,10 @@ export default function Layout() {
                 style={[
                   StyleSheet.absoluteFill,
                   Platform.OS === "android" && {
-                    backgroundColor: colorScheme === "light" ? "#fff" : "#333",
+                    backgroundColor:
+                      colorScheme === "light"
+                        ? "rgba(255, 255, 255, 0.96)"
+                        : "rgba(51, 51, 51, 0.96)",
                   },
                 ]} // 绝对定位
               />

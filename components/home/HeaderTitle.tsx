@@ -1,9 +1,7 @@
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, Pressable, StyleSheet, useColorScheme } from "react-native";
 
 import { Image } from "expo-image";
 import { router } from "expo-router";
-
-import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function HeaderTitle() {
   const handlePress = () => {

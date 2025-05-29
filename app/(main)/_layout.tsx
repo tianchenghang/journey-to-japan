@@ -1,9 +1,7 @@
-import { Pressable, StyleSheet, Platform } from "react-native";
+import { Pressable, StyleSheet, Platform, useColorScheme } from "react-native";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { router, Stack } from "expo-router";
-
-import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function Layout() {
   const colorScheme = useColorScheme() ?? "light";
@@ -27,7 +25,10 @@ export default function Layout() {
               style={[
                 StyleSheet.absoluteFill,
                 Platform.OS === "android" && {
-                  backgroundColor: colorScheme === "light" ? "#fff" : "#333",
+                  backgroundColor:
+                    colorScheme === "light"
+                      ? "rgba(255, 255, 255, 0.96)"
+                      : "rgba(51, 51, 51, 0.96)",
                 },
               ]} // 绝对定位
             />
