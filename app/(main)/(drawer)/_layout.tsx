@@ -1,5 +1,8 @@
 import { Dimensions, Text, View, StyleSheet, Platform } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import {
+  GestureHandlerRootView,
+  Pressable,
+} from "react-native-gesture-handler";
 
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
@@ -8,6 +11,8 @@ import { Drawer } from "expo-router/drawer";
 import HeaderTitle from "@/components/home/HeaderTitle";
 import MenuButton from "@/components/ui/MenuButton";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { hapticsLight, hapticSoft, hapticsSuccess } from "@/utils/hap";
+import { router } from "expo-router";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {
@@ -36,7 +41,12 @@ export default function Layout() {
             headerShadowVisible: false,
             overlayColor: "rgba(0, 0, 0, 0.3)",
             headerLeft: () => (
-              <MenuButton onPress={() => navigation.openDrawer()} />
+              <MenuButton
+                onPress={() => {
+                  hapticsSuccess();
+                  navigation.openDrawer();
+                }}
+              />
             ),
             headerLeftContainerStyle: { paddingLeft: 15 },
           };
@@ -60,11 +70,15 @@ export default function Layout() {
             ),
             drawerLabel: (props: { color: string; focused: boolean }) => {
               return (
-                <View
+                <Pressable
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 10,
+                  }}
+                  onPress={() => {
+                    hapticsLight();
+                    router.push("/(main)/(drawer)");
                   }}
                 >
                   <Image
@@ -78,7 +92,7 @@ export default function Layout() {
                   >
                     Home
                   </Text>
-                </View>
+                </Pressable>
               );
             },
             // title: "Home",
@@ -92,11 +106,15 @@ export default function Layout() {
           options={{
             drawerLabel: (props: { color: string; focused: boolean }) => {
               return (
-                <View
+                <Pressable
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 10,
+                  }}
+                  onPress={() => {
+                    hapticsLight();
+                    router.push("/(main)/(drawer)/image");
                   }}
                 >
                   <Image
@@ -113,7 +131,7 @@ export default function Layout() {
                   >
                     Image
                   </Text>
-                </View>
+                </Pressable>
               );
             },
             title: "Image",

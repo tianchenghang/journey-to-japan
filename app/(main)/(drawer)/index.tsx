@@ -58,7 +58,7 @@ export default function Index() {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "android" ? "height" : "padding"}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
       // keyboardVerticalOffset={headerHeight}
     >
@@ -79,9 +79,8 @@ export default function Index() {
             paddingHorizontal: 10,
           }}
           // 垂直滚动条
-          showsVerticalScrollIndicator={true}
+          showsVerticalScrollIndicator={false}
         />
-
         <HomeFooter />
       </ThemedView>
     </KeyboardAvoidingView>

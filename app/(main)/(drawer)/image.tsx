@@ -7,7 +7,7 @@ export default function Image() {
   const headerHeight = useHeaderHeight();
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "android" ? "height" : "padding"}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
       keyboardVerticalOffset={headerHeight}
     >
