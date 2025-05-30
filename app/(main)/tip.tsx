@@ -33,7 +33,7 @@ export default function Tip() {
       <Animated.View style={animatedStyle}>
         <Pressable
           onPressIn={() => {
-            hapticSoft()
+            hapticSoft();
             sharedScale.value = withSpring(0.96);
           }}
           onPressOut={() => {

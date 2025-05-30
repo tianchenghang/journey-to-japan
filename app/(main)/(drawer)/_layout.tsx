@@ -1,8 +1,8 @@
 import {
   Dimensions,
-  Text,
-  StyleSheet,
   Platform,
+  StyleSheet,
+  Text,
   useColorScheme,
 } from "react-native";
 import {
@@ -71,8 +71,8 @@ export default function Layout() {
                   Platform.OS === "android" && {
                     backgroundColor:
                       colorScheme === "light"
-                        ? "rgba(255, 255, 255, 0.96)"
-                        : "rgba(51, 51, 51, 0.96)",
+                        ? "rgba(255, 255, 255, 1)"
+                        : "rgba(51, 51, 51, 1)",
                   },
                 ]} // 绝对定位
               />

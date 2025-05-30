@@ -1,13 +1,13 @@
+import { BlurView } from "expo-blur";
+import { Image as ExpoImage } from "expo-image";
 import {
-  TextInput,
   Platform,
-  StyleSheet,
   Pressable,
+  StyleSheet,
+  TextInput,
   useColorScheme,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { BlurView } from "expo-blur";
-import { Image as ExpoImage } from "expo-image";
 
 export default function ImageFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();
@@ -22,8 +22,8 @@ export default function ImageFooter() {
         Platform.OS === "android" && {
           backgroundColor:
             colorScheme === "light"
-              ? "rgba(255, 255, 255, 0.96)"
-              : "rgba(51, 51, 51, 0.96)",
+              ? "rgba(255, 255, 255, 1)"
+              : "rgba(51, 51, 51, 1)",
         },
       ]}
     >

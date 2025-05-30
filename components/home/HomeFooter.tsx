@@ -1,19 +1,23 @@
-import {
-  View,
-  Pressable,
-  TextInput,
-  Platform,
-  StyleSheet,
-  useColorScheme,
-} from "react-native";
+import VoiceButton from "@/components/home/VoiceButton";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
+import { useState } from "react";
+import {
+  Platform,
+  Pressable,
+  StyleSheet,
+  TextInput,
+  useColorScheme,
+  View,
+  Text,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import VoiceButton from "./VoiceButton";
 
 export default function HomeFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();
   const colorScheme = useColorScheme() ?? "light";
+  const [deepSearch, setDeepSearch] = useState(false);
+  const [think, setThink] = useState(false);
 
   return (
     <BlurView
@@ -24,23 +28,50 @@ export default function HomeFooter() {
         Platform.OS === "android" && {
           backgroundColor:
             colorScheme === "light"
-              ? "rgba(255, 255, 255, 0.96)"
-              : "rgba(51, 51, 51, 0.96)",
+              ? "rgba(255, 255, 255, 1)"
+              : "rgba(51, 51, 51, 1)",
         },
       ]}
       intensity={50} // 默认值
     >
       <View style={styles.row1}>
-        <Image
-          source={require("@/assets/images/tip.svg")}
-          style={{ width: 24, height: 24 }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
-        />
-        <Image
-          source={require("@/assets/images/earth.svg")}
-          style={{ width: 24, height: 24 }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
-        />
+        <Pressable onPress={() => setDeepSearch(!deepSearch)}>
+          {!deepSearch ? (
+            <Image
+              source={require("@/assets/images/tip.svg")}
+              style={{ width: 24, height: 24 }}
+              tintColor={colorScheme === "light" ? "#333" : "#fff"}
+            />
+          ) : (
+            <View>
+              <Image
+                source={require("@/assets/images/tip.svg")}
+                style={{ width: 24, height: 24 }}
+                tintColor={colorScheme === "light" ? "#333" : "#fff"}
+              />
+              <Text>DeepSearch</Text>
+            </View>
+          )}
+        </Pressable>
+
+        <Pressable>
+          {!think ? (
+            <Image
+              source={require("@/assets/images/earth.svg")}
+              style={{ width: 24, height: 24 }}
+              tintColor={colorScheme === "light" ? "#333" : "#fff"}
+            />
+          ) : (
+            <View>
+              <Image
+                source={require("@/assets/images/earth.svg")}
+                style={{ width: 24, height: 24 }}
+                tintColor={colorScheme === "light" ? "#333" : "#fff"}
+              />
+              <Text>Think</Text>
+            </View>
+          )}
+        </Pressable>
         <VoiceButton />
       </View>
 

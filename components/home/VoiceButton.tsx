@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { View, Pressable, Platform, useColorScheme, Modal } from "react-native";
+import { Modal, Platform, Pressable, useColorScheme, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 
-import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
 import { hapticsSuccess } from "@/utils/hap";
 
 export default function VoiceButton() {
@@ -39,8 +39,8 @@ export default function VoiceButton() {
           Platform.OS === "android" && {
             backgroundColor:
               colorScheme === "light"
-                ? "rgba(255, 255, 255, 0.96)"
-                : "rgba(51, 51, 51, 0.96)",
+                ? "rgba(255, 255, 255, 1)"
+                : "rgba(51, 51, 51, 1)",
           }
         }
       >
