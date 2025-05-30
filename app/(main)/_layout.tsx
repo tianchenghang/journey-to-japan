@@ -39,7 +39,7 @@ export default function Layout() {
                 <Image
                   source={require("@/assets/images/close.svg")}
                   style={{ width: 24, height: 24 }}
-                  tintColor={colorScheme === "light" ? "#333" : "#fff"}
+                  tintColor={colorScheme === "light" ? "#333" : "#ddd"}
                 />
               </Pressable>
             ),

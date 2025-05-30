@@ -2,6 +2,7 @@ import { StyleSheet, useColorScheme } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { themeGreenDark, themeGreenLight } from "@/constants/Colors";
 
 interface IProps {
   content: string;
@@ -14,7 +15,7 @@ export default function UserMessage(props: IProps) {
       style={[
         styles.container,
         {
-          backgroundColor: colorScheme === "light" ? "#effdde" : "#2a4526",
+          backgroundColor: colorScheme === "light" ? themeGreenLight : themeGreenDark,
         },
       ]}
     >

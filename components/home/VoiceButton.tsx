@@ -25,7 +25,7 @@ export default function VoiceButton() {
         <Image
           source={require("@/assets/images/voice.svg")}
           style={{ width: 24, height: 24 }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
+          tintColor={colorScheme === "light" ? "#333" : "#ddd"}
         />
       </Pressable>
       <Modal
@@ -61,7 +61,7 @@ export default function VoiceButton() {
                 paddingVertical: 8,
                 paddingHorizontal: 10,
                 backgroundColor:
-                  colorScheme === "light" ? "#f1f1fc" : "#070711",
+                  colorScheme === "light" ? "#fff" : "#000",
                 alignSelf: "center",
                 flexDirection: "row",
                 justifyContent: "space-between",
@@ -78,8 +78,8 @@ export default function VoiceButton() {
               />
 
               <ThemedView
-                lightColor="#f1f1fc"
-                darkColor="#070711"
+                lightColor="#fff"
+                darkColor="#000"
                 style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
               >
                 <View

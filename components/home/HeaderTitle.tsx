@@ -2,6 +2,7 @@ import { Text, Pressable, StyleSheet, useColorScheme } from "react-native";
 
 import { Image } from "expo-image";
 import { router } from "expo-router";
+import { themePurple } from "@/constants/Colors";
 
 export default function HeaderTitle() {
   const handlePress = () => {
@@ -14,14 +15,14 @@ export default function HeaderTitle() {
       onPress={handlePress}
       style={[
         styles.container,
-        { backgroundColor: colorScheme === "light" ? "#f1f1fc" : "#070711" },
+        { backgroundColor: colorScheme === "light" ? "#fff" : "#000" },
       ]}
     >
-      <Text style={{ color: "#5856d6", fontSize: 16 }}>Get TIPs</Text>
+      <Text style={{ color: themePurple, fontSize: 16 }}>Get TIPs</Text>
       <Image
         source={require("@/assets/images/star.svg")}
         style={{ width: 16, height: 16 }}
-        tintColor="#5856d6"
+        tintColor={themePurple}
       ></Image>
     </Pressable>
   );

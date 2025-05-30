@@ -19,6 +19,7 @@ import MenuButton from "@/components/ui/MenuButton";
 
 import { hapticsLight, hapticsSuccess } from "@/utils/hap";
 import { router } from "expo-router";
+import { themePurple } from "@/constants/Colors";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {
@@ -32,7 +33,7 @@ export default function Layout() {
             drawerActiveTintColor: colorScheme === "light" ? "#000" : "#fff",
             drawerInactiveTintColor: colorScheme === "light" ? "#000" : "#fff",
             drawerActiveBackgroundColor:
-              colorScheme === "light" ? "#f5f5f5" : "#222",
+              colorScheme === "light" ? "#eee" : "#222",
             //// drawerItemStyle: { borderRadius: 16 },
             drawerHideStatusBarOnOpen: true,
             drawerLabelStyle: {
@@ -93,11 +94,11 @@ export default function Layout() {
                   <Image
                     source={require("@/assets/images/like.svg")}
                     style={{ width: 24, height: 24 }}
-                    tintColor={props.focused ? "#5856d6" : props.color}
+                    tintColor={props.focused ? themePurple : props.color}
                     contentFit="cover"
                   />
                   <Text
-                    style={{ color: props.focused ? "#5856d6" : props.color }}
+                    style={{ color: props.focused ? themePurple : props.color }}
                   >
                     Home
                   </Text>
@@ -132,11 +133,11 @@ export default function Layout() {
                       width: 24,
                       height: 24,
                     }}
-                    tintColor={props.focused ? "#5856d6" : props.color}
+                    tintColor={props.focused ? themePurple : props.color}
                     contentFit="cover"
                   />
                   <Text
-                    style={{ color: props.focused ? "#5856d6" : props.color }}
+                    style={{ color: props.focused ? themePurple : props.color }}
                   >
                     Image
                   </Text>

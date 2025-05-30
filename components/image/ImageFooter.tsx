@@ -34,19 +34,20 @@ export default function ImageFooter() {
             width: 32,
             height: 32,
           }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
+          tintColor={colorScheme === "light" ? "#333" : "#ddd"}
         />
       </Pressable>
       <TextInput
         multiline
         placeholder="What can I help with?"
-        placeholderTextColor={colorScheme === "light" ? "#333" : "#ccc"}
+        placeholderTextColor={colorScheme === "light" ? "#333" : "#ddd"}
         autoCorrect={true}
         autoCapitalize="sentences"
         style={[
           styles.textInput,
           {
             color: colorScheme === "light" ? "#000" : "#fff",
+            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
           },
         ]}
       />
@@ -54,7 +55,7 @@ export default function ImageFooter() {
         <ExpoImage
           source={require("@/assets/images/submit.svg")}
           style={{ width: 32, height: 32 }}
-          tintColor={colorScheme === "light" ? "#333" : "#fff"}
+          tintColor={colorScheme === "light" ? "#333" : "#ddd"}
         />
       </Pressable>
     </BlurView>
@@ -78,7 +79,6 @@ const styles = StyleSheet.create({
     // minHeight: 32, // 16 + 8 + 8
     fontSize: 16,
     maxHeight: 96,
-    borderColor: "#eee",
     borderWidth: 1,
     borderRadius: 16,
     paddingVertical: 8,

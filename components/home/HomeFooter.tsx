@@ -35,43 +35,80 @@ export default function HomeFooter() {
       intensity={50} // 默认值
     >
       <View style={styles.row1}>
-        <Pressable onPress={() => setDeepSearch(!deepSearch)}>
-          {!deepSearch ? (
+        <Pressable
+          onPress={() => setThink(!think)}
+          style={{
+            borderWidth: 1,
+            borderRadius: 16,
+            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+            paddingVertical: 4,
+            paddingHorizontal: 5,
+          }}
+        >
+          {!think ? (
             <Image
               source={require("@/assets/images/tip.svg")}
               style={{ width: 24, height: 24 }}
-              tintColor={colorScheme === "light" ? "#333" : "#fff"}
+              tintColor={colorScheme === "light" ? "#333" : "#ddd"}
             />
           ) : (
-            <View>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
               <Image
                 source={require("@/assets/images/tip.svg")}
                 style={{ width: 24, height: 24 }}
-                tintColor={colorScheme === "light" ? "#333" : "#fff"}
+                tintColor={colorScheme === "light" ? "#333" : "#ddd"}
               />
-              <Text>DeepSearch</Text>
+              <Text
+                style={{
+                  color: colorScheme === "light" ? "#000" : "#fff",
+                  paddingRight: 5,
+                }}
+              >
+                Think
+              </Text>
             </View>
           )}
         </Pressable>
 
-        <Pressable>
-          {!think ? (
+        <Pressable
+          onPress={() => setDeepSearch(!deepSearch)}
+          style={{
+            borderWidth: 1,
+            borderRadius: 16,
+            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+            paddingVertical: 4,
+            paddingHorizontal: 5,
+          }}
+        >
+          {!deepSearch ? (
             <Image
               source={require("@/assets/images/earth.svg")}
               style={{ width: 24, height: 24 }}
-              tintColor={colorScheme === "light" ? "#333" : "#fff"}
+              tintColor={colorScheme === "light" ? "#333" : "#ddd"}
             />
           ) : (
-            <View>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
               <Image
                 source={require("@/assets/images/earth.svg")}
                 style={{ width: 24, height: 24 }}
-                tintColor={colorScheme === "light" ? "#333" : "#fff"}
+                tintColor={colorScheme === "light" ? "#333" : "#ddd"}
               />
-              <Text>Think</Text>
+              <Text
+                style={{
+                  color: colorScheme === "light" ? "#000" : "#fff",
+                  paddingRight: 5,
+                }}
+              >
+                DeepSearch
+              </Text>
             </View>
           )}
         </Pressable>
+
         <VoiceButton />
       </View>
 
@@ -80,19 +117,20 @@ export default function HomeFooter() {
           <Image
             source={require("@/assets/images/upload.svg")}
             style={{ width: 32, height: 32 }}
-            tintColor={colorScheme === "light" ? "#333" : "#fff"}
+            tintColor={colorScheme === "light" ? "#333" : "#ddd"}
           />
         </Pressable>
         <TextInput
           multiline
           placeholder="What can I help with?"
-          placeholderTextColor={colorScheme === "light" ? "#333" : "#ccc"}
+          placeholderTextColor={colorScheme === "light" ? "#333" : "#ddd"}
           autoCorrect={true}
           autoCapitalize="sentences"
           style={[
             styles.textInput,
             {
               color: colorScheme === "light" ? "#000" : "#fff",
+              borderColor: colorScheme === "light" ? "#ccc" : "#fff",
             },
           ]}
         />
@@ -100,7 +138,7 @@ export default function HomeFooter() {
           <Image
             source={require("@/assets/images/submit.svg")}
             style={{ width: 32, height: 32 }}
-            tintColor={colorScheme === "light" ? "#333" : "#fff"}
+            tintColor={colorScheme === "light" ? "#333" : "#ddd"}
           />
         </Pressable>
       </View>
@@ -135,7 +173,6 @@ const styles = StyleSheet.create({
     // minHeight: 32, // 16 + 8 + 8
     fontSize: 16,
     maxHeight: 96,
-    borderColor: "#eee",
     borderWidth: 1,
     borderRadius: 16,
     paddingVertical: 8,

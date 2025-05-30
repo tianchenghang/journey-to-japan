@@ -1,5 +1,6 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { themeGray } from "@/constants/Colors";
 import { hapticSoft } from "@/utils/hap";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { Pressable, ScrollView } from "react-native";
@@ -45,7 +46,7 @@ export default function Tip() {
             height: 50,
             bottom: safeBottom,
             borderRadius: 25,
-            backgroundColor: "#7f7f7f",
+            backgroundColor: themeGray,
             alignSelf: "center",
             justifyContent: "center",
             alignItems: "center",
