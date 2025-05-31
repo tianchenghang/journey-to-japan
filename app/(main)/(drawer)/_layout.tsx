@@ -17,9 +17,9 @@ import { Drawer } from "expo-router/drawer";
 import HeaderTitle from "@/components/home/HeaderTitle";
 import MenuButton from "@/components/ui/MenuButton";
 
+import { themePurple } from "@/constants/Colors";
 import { hapticsLight, hapticsSuccess } from "@/utils/hap";
 import { router } from "expo-router";
-import { themePurple } from "@/constants/Colors";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {
@@ -46,7 +46,7 @@ export default function Layout() {
               width: viewportWidth * 0.8,
             },
             headerShadowVisible: false,
-            overlayColor: "rgba(0, 0, 0, 0.3)",
+            overlayColor: "rgba(0, 0, 0, 0.5)",
             headerLeft: () => (
               <MenuButton
                 onPress={() => {
@@ -70,10 +70,7 @@ export default function Layout() {
                 style={[
                   StyleSheet.absoluteFill,
                   Platform.OS === "android" && {
-                    backgroundColor:
-                      colorScheme === "light"
-                        ? "rgba(255, 255, 255, 1)"
-                        : "rgba(51, 51, 51, 1)",
+                    backgroundColor: colorScheme === "light" ? "#fff" : "#000",
                   },
                 ]} // 绝对定位
               />

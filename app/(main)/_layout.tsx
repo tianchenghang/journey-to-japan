@@ -25,10 +25,7 @@ export default function Layout() {
               style={[
                 StyleSheet.absoluteFill,
                 Platform.OS === "android" && {
-                  backgroundColor:
-                    colorScheme === "light"
-                      ? "rgba(255, 255, 255, 1)"
-                      : "rgba(51, 51, 51, 1)",
+                  backgroundColor: colorScheme === "light" ? "#fff" : "#000",
                 },
               ]} // 绝对定位
             />

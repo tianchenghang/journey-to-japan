@@ -15,7 +15,7 @@ export default function AgentMessage(props: IProps) {
       style={[
         styles.container,
         {
-          backgroundColor: colorScheme === "light" ? "#eee" : "#333",
+          backgroundColor: colorScheme === "light" ? "#eee" : "#222",
         },
       ]}
     >

@@ -21,6 +21,13 @@ export default function VoiceButton() {
           hapticsSuccess();
           setModalVisible(true); // 显示 Modal
         }}
+        style={{
+          borderWidth: 1,
+          borderRadius: 16,
+          borderColor: colorScheme === "light" ? "#ccc" : "#444",
+          paddingVertical: 4,
+          paddingHorizontal: 5,
+        }}
       >
         <Image
           source={require("@/assets/images/voice.svg")}
@@ -37,10 +44,7 @@ export default function VoiceButton() {
         }}
         style={
           Platform.OS === "android" && {
-            backgroundColor:
-              colorScheme === "light"
-                ? "rgba(255, 255, 255, 1)"
-                : "rgba(51, 51, 51, 1)",
+            backgroundColor: colorScheme === "light" ? "#fff" : "#000",
           }
         }
       >
@@ -60,8 +64,7 @@ export default function VoiceButton() {
                 borderRadius: 25,
                 paddingVertical: 8,
                 paddingHorizontal: 10,
-                backgroundColor:
-                  colorScheme === "light" ? "#fff" : "#000",
+                backgroundColor: colorScheme === "light" ? "#fff" : "#000",
                 alignSelf: "center",
                 flexDirection: "row",
                 justifyContent: "space-between",

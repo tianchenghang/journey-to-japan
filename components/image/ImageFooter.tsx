@@ -20,10 +20,7 @@ export default function ImageFooter() {
         styles.container,
         { paddingBottom: safeBottom },
         Platform.OS === "android" && {
-          backgroundColor:
-            colorScheme === "light"
-              ? "rgba(255, 255, 255, 1)"
-              : "rgba(51, 51, 51, 1)",
+          backgroundColor: colorScheme === "light" ? "#fff" : "#000",
         },
       ]}
     >
@@ -47,7 +44,7 @@ export default function ImageFooter() {
           styles.textInput,
           {
             color: colorScheme === "light" ? "#000" : "#fff",
-            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+            borderColor: colorScheme === "light" ? "#ccc" : "#444",
           },
         ]}
       />

@@ -15,7 +15,7 @@ export default function HeaderTitle() {
       onPress={handlePress}
       style={[
         styles.container,
-        { backgroundColor: colorScheme === "light" ? "#fff" : "#000" },
+        { backgroundColor: colorScheme === "light" ? "#eee" : "#222" },
       ]}
     >
       <Text style={{ color: themePurple, fontSize: 16 }}>Get TIPs</Text>

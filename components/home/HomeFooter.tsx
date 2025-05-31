@@ -1,4 +1,6 @@
 import VoiceButton from "@/components/home/VoiceButton";
+import { themePurple } from "@/constants/Colors";
+import { hapticSoft } from "@/utils/hap";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { useState } from "react";
@@ -6,18 +8,18 @@ import {
   Platform,
   Pressable,
   StyleSheet,
+  Text,
   TextInput,
   useColorScheme,
   View,
-  Text,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();
   const colorScheme = useColorScheme() ?? "light";
-  const [deepSearch, setDeepSearch] = useState(false);
-  const [think, setThink] = useState(false);
+  const [enableDeepSearch, setEnableDeepSearch] = useState(false);
+  const [enableThink, setEnableThink] = useState(false);
 
   return (
     <BlurView
@@ -26,26 +28,26 @@ export default function HomeFooter() {
         styles.container,
         { paddingBottom: safeBottom },
         Platform.OS === "android" && {
-          backgroundColor:
-            colorScheme === "light"
-              ? "rgba(255, 255, 255, 1)"
-              : "rgba(51, 51, 51, 1)",
+          backgroundColor: colorScheme === "light" ? "#fff" : "#000",
         },
       ]}
       intensity={50} // 默认值
     >
       <View style={styles.row1}>
         <Pressable
-          onPress={() => setThink(!think)}
+          onPress={() => {
+            hapticSoft();
+            setEnableThink(!enableThink);
+          }}
           style={{
             borderWidth: 1,
             borderRadius: 16,
-            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+            borderColor: colorScheme === "light" ? "#ccc" : "#444",
             paddingVertical: 4,
             paddingHorizontal: 5,
           }}
         >
-          {!think ? (
+          {!enableThink ? (
             <Image
               source={require("@/assets/images/tip.svg")}
               style={{ width: 24, height: 24 }}
@@ -58,7 +60,7 @@ export default function HomeFooter() {
               <Image
                 source={require("@/assets/images/tip.svg")}
                 style={{ width: 24, height: 24 }}
-                tintColor={colorScheme === "light" ? "#333" : "#ddd"}
+                tintColor={themePurple}
               />
               <Text
                 style={{
@@ -73,16 +75,19 @@ export default function HomeFooter() {
         </Pressable>
 
         <Pressable
-          onPress={() => setDeepSearch(!deepSearch)}
+          onPress={() => {
+            hapticSoft();
+            setEnableDeepSearch(!enableDeepSearch);
+          }}
           style={{
             borderWidth: 1,
             borderRadius: 16,
-            borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+            borderColor: colorScheme === "light" ? "#ccc" : "#444",
             paddingVertical: 4,
             paddingHorizontal: 5,
           }}
         >
-          {!deepSearch ? (
+          {!enableDeepSearch ? (
             <Image
               source={require("@/assets/images/earth.svg")}
               style={{ width: 24, height: 24 }}
@@ -95,7 +100,7 @@ export default function HomeFooter() {
               <Image
                 source={require("@/assets/images/earth.svg")}
                 style={{ width: 24, height: 24 }}
-                tintColor={colorScheme === "light" ? "#333" : "#ddd"}
+                tintColor={themePurple}
               />
               <Text
                 style={{
@@ -130,7 +135,7 @@ export default function HomeFooter() {
             styles.textInput,
             {
               color: colorScheme === "light" ? "#000" : "#fff",
-              borderColor: colorScheme === "light" ? "#ccc" : "#fff",
+              borderColor: colorScheme === "light" ? "#ccc" : "#444",
             },
           ]}
         />
@@ -158,7 +163,7 @@ const styles = StyleSheet.create({
   row1: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 20,
+    gap: 10,
     paddingLeft: 50,
   },
   row2: {
