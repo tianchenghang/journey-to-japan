@@ -1,5 +1,3 @@
-import { BlurView } from "expo-blur";
-import { Image as ExpoImage } from "expo-image";
 import {
   Platform,
   Pressable,
@@ -8,6 +6,9 @@ import {
   useColorScheme,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { BlurView } from "expo-blur";
+import { Image as ExpoImage } from "expo-image";
 
 export default function ImageFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();

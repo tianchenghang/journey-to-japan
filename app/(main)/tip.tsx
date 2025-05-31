@@ -1,15 +1,17 @@
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { themeGray } from "@/constants/Colors";
-import { hapticSoft } from "@/utils/hap";
-import { useHeaderHeight } from "@react-navigation/elements";
-import { Pressable, ScrollView } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { Pressable, ScrollView } from "react-native";
+import { useHeaderHeight } from "@react-navigation/elements";
+
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { themeGray } from "@/constants/Colors";
+import { hapticSoft } from "@/utils/hap";
 
 export default function Tip() {
   const headerHeight = useHeaderHeight();

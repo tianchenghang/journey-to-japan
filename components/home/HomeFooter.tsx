@@ -1,8 +1,3 @@
-import VoiceButton from "@/components/home/VoiceButton";
-import { themePurple } from "@/constants/Colors";
-import { hapticSoft } from "@/utils/hap";
-import { BlurView } from "expo-blur";
-import { Image } from "expo-image";
 import { useState } from "react";
 import {
   Platform,
@@ -14,6 +9,13 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { BlurView } from "expo-blur";
+import { Image } from "expo-image";
+
+import VoiceButton from "@/components/home/VoiceButton";
+import { themePurple } from "@/constants/Colors";
+import { hapticSoft } from "@/utils/hap";
 
 export default function HomeFooter() {
   const { bottom: safeBottom } = useSafeAreaInsets();

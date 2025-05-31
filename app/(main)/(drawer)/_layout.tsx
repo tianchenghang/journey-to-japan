@@ -12,14 +12,13 @@ import {
 
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
+import { router } from "expo-router";
 import { Drawer } from "expo-router/drawer";
 
 import HeaderTitle from "@/components/home/HeaderTitle";
 import MenuButton from "@/components/ui/MenuButton";
-
 import { themePurple } from "@/constants/Colors";
 import { hapticsLight, hapticsSuccess } from "@/utils/hap";
-import { router } from "expo-router";
 
 const { width: viewportWidth } = Dimensions.get("window");
 export default function Layout() {

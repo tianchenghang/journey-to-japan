@@ -1,26 +1,68 @@
-import { StyleSheet, useColorScheme } from "react-native";
+import { Image } from "expo-image";
+import { useState } from "react";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { IMessageItem } from "@/components/home/MessageItem";
+import { hapticSoft } from "@/utils/hap";
 
 interface IProps {
-  content: string;
+  item: IMessageItem;
 }
 
-export default function AgentMessage(props: IProps) {
+export default function AgentMessage({ item }: IProps) {
+  const { content, deepSearch } = item;
+  const [showDeepSearch, setShowDeepSearch] = useState(true);
   const colorScheme = useColorScheme();
 
   return (
-    <ThemedView
-      style={[
-        styles.container,
-        {
-          backgroundColor: colorScheme === "light" ? "#eee" : "#222",
-        },
-      ]}
+    <View
+      style={{
+        flexDirection: "column",
+        alignSelf: "flex-start",
+        gap: 8,
+      }}
     >
-      <ThemedText style={{ fontSize: 16 }}>{[props.content]}</ThemedText>
-    </ThemedView>
+      {deepSearch && deepSearch.length > 0 && (
+        <>
+          <Pressable
+            style={{ flexDirection: "row", gap: 5, alignItems: "center" }}
+            onPress={() => {
+              hapticSoft();
+              setShowDeepSearch(!showDeepSearch);
+            }}
+          >
+            <ThemedText>DeepSearch</ThemedText>
+            <Image
+              source={require("@/assets/images/down.svg")}
+              style={{
+                width: 24,
+                height: 24,
+                transform: [{ rotate: showDeepSearch ? "90deg" : "0deg" }],
+              }}
+            />
+          </Pressable>
+          {showDeepSearch && (
+            <Text style={{ fontSize: 14, color: "#333" }}>{deepSearch}</Text>
+          )}
+        </>
+      )}
+      <ThemedView
+        style={[
+          styles.container,
+          { backgroundColor: colorScheme === "light" ? "#eee" : "#222" },
+        ]}
+      >
+        <ThemedText style={{ fontSize: 16 }}>{[content]}</ThemedText>
+      </ThemedView>
+    </View>
   );
 }
 

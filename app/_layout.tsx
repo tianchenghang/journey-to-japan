@@ -4,9 +4,10 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 
+import { useColorScheme } from "react-native";
+
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "react-native";
 
 export default function Layout() {
   const colorScheme = useColorScheme();

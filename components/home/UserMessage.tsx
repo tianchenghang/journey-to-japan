@@ -2,24 +2,27 @@ import { StyleSheet, useColorScheme } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { IMessageItem } from "@/components/home/MessageItem";
 import { themeGreenDark, themeGreenLight } from "@/constants/Colors";
 
 interface IProps {
-  content: string;
+  item: IMessageItem;
 }
 
-export default function UserMessage(props: IProps) {
+export default function UserMessage({ item }: IProps) {
+  const { content } = item;
   const colorScheme = useColorScheme();
   return (
     <ThemedView
       style={[
         styles.container,
         {
-          backgroundColor: colorScheme === "light" ? themeGreenLight : themeGreenDark,
+          backgroundColor:
+            colorScheme === "light" ? themeGreenLight : themeGreenDark,
         },
       ]}
     >
-      <ThemedText style={{ fontSize: 16 }}>{[props.content]}</ThemedText>
+      <ThemedText style={{ fontSize: 16 }}>{[content]}</ThemedText>
     </ThemedView>
   );
 }

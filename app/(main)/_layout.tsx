@@ -1,7 +1,8 @@
+import { Platform, Pressable, StyleSheet, useColorScheme } from "react-native";
+
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { router, Stack } from "expo-router";
-import { Platform, Pressable, StyleSheet, useColorScheme } from "react-native";
 
 export default function Layout() {
   const colorScheme = useColorScheme() ?? "light";
