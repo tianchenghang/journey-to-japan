@@ -45,12 +45,20 @@ export default function AgentMessage({ item }: IProps) {
               style={{
                 width: 24,
                 height: 24,
-                transform: [{ rotate: showDeepSearch ? "90deg" : "0deg" }],
+                transform: [{ rotate: showDeepSearch ? "0deg" : "-90deg" }],
               }}
+              tintColor={colorScheme === "light" ? "#333" : "#ddd"}
             />
           </Pressable>
           {showDeepSearch && (
-            <Text style={{ fontSize: 14, color: "#333" }}>{deepSearch}</Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: colorScheme === "light" ? "#333" : "#ddd",
+              }}
+            >
+              {deepSearch}
+            </Text>
           )}
         </>
       )}

@@ -155,10 +155,10 @@ export default function HomeFooter() {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    flexDirection: "column",
+    // position: "absolute",
+    // bottom: 0,
+    // width: "100%",
+    // flexDirection: "column",
     gap: 8,
     paddingTop: 10,
   },
