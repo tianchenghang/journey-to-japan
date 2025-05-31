@@ -3,15 +3,10 @@ import {
   FlatList,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
-  useColorScheme,
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useHeaderHeight } from "@react-navigation/elements";
-
-import { BlurView } from "expo-blur";
-import { Image } from "expo-image";
 
 import { ThemedView } from "@/components/ThemedView";
 import HomeFooter from "@/components/home/HomeFooter";
