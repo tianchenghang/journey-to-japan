@@ -51,7 +51,7 @@ export default function ImageFooter() {
       />
       <Pressable onPress={() => {}}>
         <ExpoImage
-          source={require("@/assets/images/submit.svg")}
+          source={require("@/assets/images/send.svg")}
           style={{ width: 32, height: 32 }}
           tintColor={colorScheme === "light" ? "#333" : "#ddd"}
         />

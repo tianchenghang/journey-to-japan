@@ -2,14 +2,14 @@ import { StyleSheet, useColorScheme } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { IMessageItem } from "@/components/home/MessageItem";
+import { IMsgItem } from "@/components/home/MsgItem";
 import { themeGreenDark, themeGreenLight } from "@/constants/Colors";
 
 interface IProps {
-  item: IMessageItem;
+  item: IMsgItem;
 }
 
-export default function UserMessage({ item }: IProps) {
+export default function UserMsg({ item }: IProps) {
   const { content } = item;
   const colorScheme = useColorScheme();
   return (

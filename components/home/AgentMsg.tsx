@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Pressable,
   StyleSheet,
@@ -10,17 +10,18 @@ import {
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { IMessageItem } from "@/components/home/MessageItem";
+import { IMsgItem } from "@/components/home/MsgItem";
 import { hapticSoft } from "@/utils/hap";
+import LoadingMsg from "./LoadingMsg";
 
 interface IProps {
-  item: IMessageItem;
+  item: IMsgItem;
 }
 
-export default function AgentMessage({ item }: IProps) {
-  const { content, deepSearch } = item;
-  const [showDeepSearch, setShowDeepSearch] = useState(true);
+export default function AgentMsg({ item }: IProps) {
+  const { content, deepSearch, isLoading } = item;
   const colorScheme = useColorScheme();
+  const [showDeepSearch, setShowDeepSearch] = useState(true);
 
   return (
     <View
@@ -62,14 +63,19 @@ export default function AgentMessage({ item }: IProps) {
           )}
         </>
       )}
-      <ThemedView
-        style={[
-          styles.container,
-          { backgroundColor: colorScheme === "light" ? "#eee" : "#222" },
-        ]}
-      >
-        <ThemedText style={{ fontSize: 16 }}>{[content]}</ThemedText>
-      </ThemedView>
+
+      {content && (
+        <ThemedView
+          style={[
+            styles.container,
+            { backgroundColor: colorScheme === "light" ? "#eee" : "#222" },
+          ]}
+        >
+          <ThemedText style={{ fontSize: 16 }}>{content}</ThemedText>
+        </ThemedView>
+      )}
+
+      {isLoading && <LoadingMsg isLoading={isLoading} />}
     </View>
   );
 }

@@ -72,7 +72,7 @@ export default function VoiceButton() {
               }}
             >
               <Image
-                source={require("@/assets/images/check.svg")}
+                source={require("@/assets/images/ok.svg")}
                 style={{
                   width: 24,
                   height: 24,

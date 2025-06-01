@@ -1,83 +1,53 @@
 import { useRef, useState } from "react";
-import {
-  FlatList,
-  KeyboardAvoidingView,
-  Platform,
-  View,
-} from "react-native";
+import { FlatList, KeyboardAvoidingView, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useHeaderHeight } from "@react-navigation/elements";
 
 import { ThemedView } from "@/components/ThemedView";
 import HomeFooter from "@/components/home/HomeFooter";
-import MessageItem, { IMessageItem } from "@/components/home/MessageItem";
+import MsgItem, { IMsgItem } from "@/components/home/MsgItem";
 import ScrollButton from "@/components/ui/ScrollButton";
 
-const messageList: IMessageItem[] = [
-  { key: "1", role: "user", content: "User ping." },
-  {
-    key: "2",
-    role: "agent",
-    content: "Agent pong.",
-  },
-  { key: "3", role: "user", content: "User ping again." },
-  {
-    key: "4",
-    role: "agent",
-    content: "Agent pong again.",
-    deepSearch: "Deep search content",
-  },
-  { key: "11", role: "user", content: "User ping." },
-  {
-    key: "12",
-    role: "agent",
-    content: "Agent pong.",
-  },
-  { key: "13", role: "user", content: "User ping again." },
-  {
-    key: "14",
-    role: "agent",
-    content: "Agent pong again.",
-    deepSearch: "Deep search content",
-  },
-  { key: "21", role: "user", content: "User ping." },
-  {
-    key: "22",
-    role: "agent",
-    content: "Agent pong.",
-  },
-  { key: "23", role: "user", content: "User ping again." },
-  {
-    key: "24",
-    role: "agent",
-    content: "Agent pong again.",
-    deepSearch: "Deep search content",
-  },
-  { key: "31", role: "user", content: "User ping." },
-  {
-    key: "32",
-    role: "agent",
-    content: "Agent pong.",
-  },
-  { key: "33", role: "user", content: "User ping again." },
-  {
-    key: "34",
-    role: "agent",
-    content: "Agent pong again.",
-    deepSearch: "Deep search content",
-  },
-];
+import "react-native-get-random-values";
+import { v4 as uuid } from "uuid";
 
 export default function Index() {
   const headerHeight = useHeaderHeight();
   const { bottom: safeBottom } = useSafeAreaInsets();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [showScrollBtn, setShowScrollBtn] = useState(false);
+  const [msgList, setMsgList] = useState<IMsgItem[]>([]);
   const flatListRef = useRef<FlatList>(null);
+
   const handleScroll = () => {
     flatListRef.current?.scrollToOffset({
       offset: (1 << 15) - 1,
       animated: true,
+    });
+  };
+
+  const handleSend = async (content: string) => {
+    setIsLoading(true);
+    const userMsg: IMsgItem = { key: uuid(), content, role: "user" };
+    const agentMsg: IMsgItem = {
+      key: uuid(),
+      content: "",
+      role: "agent",
+      isLoading: true,
+    };
+    setMsgList((oldMsgList) => [...oldMsgList, userMsg, agentMsg]);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    setIsLoading(false);
+    setMsgList((oldMsgList) => {
+      const newMsgList = [...oldMsgList];
+      newMsgList[newMsgList.length - 1] = {
+        ...newMsgList[newMsgList.length - 1],
+        isLoading: false,
+        content: "Message from agent",
+      };
+      return newMsgList;
     });
   };
 
@@ -90,8 +60,8 @@ export default function Index() {
       <ThemedView style={{ flex: 1 }}>
         <FlatList
           ref={flatListRef}
-          data={messageList}
-          renderItem={({ item }) => <MessageItem item={item} />}
+          data={msgList}
+          renderItem={({ item }) => <MsgItem item={item} />}
           keyExtractor={(item) => item.key}
           contentContainerStyle={{
             paddingTop: headerHeight,
@@ -131,7 +101,7 @@ export default function Index() {
             showScrollBtn={showScrollBtn}
             handleScroll={handleScroll}
           />
-          <HomeFooter />
+          <HomeFooter handleSend={handleSend} isLoading={isLoading} />
         </View>
       </ThemedView>
     </KeyboardAvoidingView>
