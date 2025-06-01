@@ -16,6 +16,7 @@ import { Image } from "expo-image";
 import VoiceButton from "@/components/home/VoiceButton";
 import { themePurple } from "@/constants/Colors";
 import { hapticSoft } from "@/utils/hap";
+import UploadModal from "./UploadModal";
 
 interface IProps {
   handleSend: (content: string) => Promise<void>;
@@ -31,6 +32,8 @@ export default function HomeFooter(props: IProps) {
   const [enableDeepSearch, setEnableDeepSearch] = useState(false);
   const [enableThink, setEnableThink] = useState(false);
   const [content, setContent] = useState("");
+
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <BlurView
@@ -129,7 +132,12 @@ export default function HomeFooter(props: IProps) {
       </View>
 
       <View style={styles.row2}>
-        <Pressable onPress={() => {}}>
+        <Pressable
+          onPress={() => {
+            hapticSoft();
+            setShowModal(true);
+          }}
+        >
           <Image
             source={require("@/assets/images/upload.svg")}
             style={{ width: 32, height: 32 }}
@@ -176,6 +184,8 @@ export default function HomeFooter(props: IProps) {
           )}
         </Pressable>
       </View>
+
+      <UploadModal showModal={showModal} setShowModal={setShowModal} />
     </BlurView>
   );
 }

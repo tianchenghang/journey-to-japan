@@ -37,18 +37,20 @@ export default function VoiceButton() {
       </Pressable>
       <Modal
         animationType="fade"
-        transparent={true}
+        transparent
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}
-        style={
-          Platform.OS === "android" && {
-            backgroundColor: colorScheme === "light" ? "#fff" : "#000",
-          }
-        }
       >
-        <BlurView style={{ flex: 1 }}>
+        <BlurView
+          style={[
+            { flex: 1 },
+            // Platform.OS === "android" && {
+            //   backgroundColor: colorScheme === "light" ? "#fff" : "#000",
+            // },
+          ]}
+        >
           <Pressable
             style={{ flex: 1 }}
             onPress={() => {

@@ -27,7 +27,7 @@ export default function ImageFooter() {
     >
       <Pressable onPress={() => {}}>
         <ExpoImage
-          source={require("@/assets/images/config.svg")}
+          source={require("@/assets/images/setting.svg")}
           style={{
             width: 32,
             height: 32,
