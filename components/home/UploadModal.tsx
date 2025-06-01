@@ -36,10 +36,15 @@ export default function UploadModal(props: IProps) {
           <ScrollView
             contentContainerStyle={{
               position: "absolute",
-              bottom: safeBottom * 2,
-              width: "100%",
-              paddingLeft: safeBottom,
+              flexDirection: "column",
               gap: 16,
+              left: safeBottom,
+              bottom: safeBottom * 2,
+              padding: 16,
+              backgroundColor: colorScheme === "light" ? "#fff" : "#000",
+              borderRadius: 16,
+              borderColor: colorScheme === "light" ? "#ccc" : "#444",
+              borderWidth: 1,
             }}
           >
             <Pressable

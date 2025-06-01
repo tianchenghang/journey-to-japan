@@ -13,7 +13,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { themeGray } from "@/constants/Colors";
 import { hapticSoft } from "@/utils/hap";
 
-export default function Tip() {
+export default function Music() {
   const headerHeight = useHeaderHeight();
   const { bottom: safeBottom } = useSafeAreaInsets();
 
@@ -31,7 +31,7 @@ export default function Tip() {
         paddingTop: headerHeight,
       }}
     >
-      <ThemedText>TIPs</ThemedText>
+      <ThemedText>Music</ThemedText>
       <ScrollView>{/* todo */}</ScrollView>
       <Animated.View style={animatedStyle}>
         <Pressable

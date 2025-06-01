@@ -14,9 +14,9 @@ import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 
 import VoiceButton from "@/components/home/VoiceButton";
+import UploadModal from "@/components/home/UploadModal";
 import { themePurple } from "@/constants/Colors";
 import { hapticSoft } from "@/utils/hap";
-import UploadModal from "./UploadModal";
 
 interface IProps {
   handleSend: (content: string) => Promise<void>;

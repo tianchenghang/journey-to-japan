@@ -12,7 +12,7 @@ export default function Layout() {
       {/* Optionally configure static options outside the route.*/}
       <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
       <Stack.Screen
-        name="tip"
+        name="music"
         options={{
           headerShown: true,
           // Ugly android
@@ -41,7 +41,7 @@ export default function Layout() {
                 />
               </Pressable>
             ),
-          title: "TIPs",
+          title: "Music",
           headerShadowVisible: true,
           headerTitleAlign: "center",
         }}

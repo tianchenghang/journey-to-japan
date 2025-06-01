@@ -7,7 +7,7 @@ import { themePurple } from "@/constants/Colors";
 
 export default function HeaderTitle() {
   const handlePress = () => {
-    router.push("/tip");
+    router.push("/music");
   };
   const colorScheme = useColorScheme();
 
@@ -19,9 +19,9 @@ export default function HeaderTitle() {
         { backgroundColor: colorScheme === "light" ? "#eee" : "#222" },
       ]}
     >
-      <Text style={{ color: themePurple, fontSize: 16 }}>Get TIPs</Text>
+      <Text style={{ color: themePurple, fontSize: 16 }}>Enjoy Music</Text>
       <Image
-        source={require("@/assets/images/star.svg")}
+        source={require("@/assets/images/music.svg")}
         style={{ width: 16, height: 16 }}
         tintColor={themePurple}
       ></Image>
