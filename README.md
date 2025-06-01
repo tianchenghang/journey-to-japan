@@ -6,32 +6,39 @@
 - Use PascalCase for type names and enum names.
 - Name files with camelCase (for example, ebsVolumes.tsx or storage.ts)
 
-```js
-// Our official coze sdk for JavaScript [coze-js](https://github.com/coze-dev/coze-js)
-import { CozeAPI } from "@coze/api";
-
-const apiClient = new CozeAPI({
-  token: "your_token",
-  baseURL: "https://api.coze.cn",
-});
-const res = await apiClient.chat.stream({
-  bot_id: "your_bot_id",
-  user_id: "journey-to-japan",
-  additional_messages: [
-    {
-      content: "Which is bigger, 1 or 2?",
-      content_type: "text",
-      role: "user",
-      type: "question",
-    },
-  ],
-});
-```
-
 ## Build
 
 ```bash
 pnpm install -g eas-cli
 eas login
 eas build:configure
+
+keytool \
+  -genkey -v \
+  -keystore release.keystore \
+  -alias Shita0228 \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000 \
+  -storepass Shita0228 \
+  -keypass Shita0228 \
+  -dname "CN=io.github.tianchenghang.journeytojapan,OU=,O=,L=,S=,C=JP"
+
+# CN: Common Name
+# OU: Organizational Unit
+# O: Organization
+# L: Locality
+# S: State
+# C: Country
+
+# Create native directory
+pnpm exec expo prebuild
+mkdir ./android/keystores
+mv ./release.keystore ./android/keystores/
+
+cd android/
+./gradlew app:bundleRelease
+
+scoop install gradle && gradle app:bundleRelease
+brew install gradle && gradle app:bundleRelease
 ```
