@@ -11,12 +11,12 @@
 import { CozeAPI } from "@coze/api";
 
 const apiClient = new CozeAPI({
-  token: "pat_xDAuDfaMCcj0WtDezTu0qIIFF9B6EYNaLtGfItH6CDVGjPi3PI7zVA71oBz5SD0W",
+  token: "your_token",
   baseURL: "https://api.coze.cn",
 });
 const res = await apiClient.chat.stream({
-  bot_id: "7510893638935838770",
-  user_id: "tianchenghang",
+  bot_id: "your_bot_id",
+  user_id: "journey-to-japan",
   additional_messages: [
     {
       content: "Which is bigger, 1 or 2?",
@@ -26,4 +26,12 @@ const res = await apiClient.chat.stream({
     },
   ],
 });
+```
+
+## Build
+
+```bash
+pnpm install -g eas-cli
+eas login
+eas build:configure
 ```

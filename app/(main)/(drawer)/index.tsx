@@ -97,7 +97,7 @@ export default function Index() {
         newMsgList[newMsgList.length - 1] = {
           ...newMsgList[newMsgList.length - 1],
           isLoading: false,
-          content: "Unknown error",
+          content: "Agent error",
         };
         return newMsgList;
       });
