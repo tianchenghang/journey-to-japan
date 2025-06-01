@@ -1,16 +1,10 @@
 # Your Japan travel assistant
 
-Developed with react-native and expo
-
-Use camelCase for variable and function names.
-
-Use PascalCase for class names and interface names.
-
-Use camelCase for interface members.
-
-Use PascalCase for type names and enum names.
-
-Name files with camelCase (for example, ebsVolumes.tsx or storage.ts)
+- Use camelCase for variable and function names.
+- Use PascalCase for class names and interface names.
+- Use camelCase for interface members.
+- Use PascalCase for type names and enum names.
+- Name files with camelCase (for example, ebsVolumes.tsx or storage.ts)
 
 ```js
 // Our official coze sdk for JavaScript [coze-js](https://github.com/coze-dev/coze-js)
